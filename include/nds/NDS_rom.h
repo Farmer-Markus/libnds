@@ -3,7 +3,9 @@
 
 #include <stdint.h>
 
-
+#define NDS_RH_GAMETITLE_SIZE 12
+#define NDS_RH_GAMECODE_SIZE 4
+#define NDS_RH_MAKERCODE_SIZE 2
 
 #ifdef __cplusplus
 extern "C"
@@ -17,9 +19,9 @@ typedef struct NDS_Rom NDS_Rom;
 // NDS Rom header object
 typedef struct NDS_RomHeader
 {
-    char gameTitle[12];
-    char gameCode[4];
-    char makerCode[2];
+    char gameTitle[NDS_RH_GAMETITLE_SIZE];
+    char gameCode[NDS_RH_GAMECODE_SIZE];
+    char makerCode[NDS_RH_MAKERCODE_SIZE];
     uint8_t unitCode;
     uint8_t encryptionSeedSelect;
     uint8_t deviceCapacity;
@@ -76,10 +78,10 @@ typedef struct NDS_RomHeader
 extern NDS_Rom* NDS_OpenRom(char* path);
 
 // Close NDS rom from rom object
-extern int NDS_CloseRom(NDS_Rom *rom);
+extern int NDS_CloseRom(NDS_Rom *romptr);
 
 // Get NDS rom header infos
-extern const struct NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom* rom);
+extern const struct NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom* romptr);
 
 
 #ifdef __cplusplus

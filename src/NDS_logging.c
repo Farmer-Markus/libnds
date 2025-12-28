@@ -9,7 +9,6 @@ static NDS_ErrorMessage* NDS_GetGlobalErrorMessage(void);
 static int NDS_ReallocErrorMsg(NDS_ErrorMessage* ndsMsg, const char* msg);
 
 
-
 NDS_ErrorMessage* NDS_GetGlobalErrorMessage(void)
 {
     static NDS_ErrorMessage errMsg;

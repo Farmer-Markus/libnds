@@ -1,3 +1,4 @@
+/*
 #include "NDS.h"
 #include "filesystem/NDS_filesystem.h"
 #include "filesystem/NDS_rom.h"
@@ -92,4 +93,4 @@ int main()
     // NDS_CloseRom(rom);
 
     return 0;
-}
+*/

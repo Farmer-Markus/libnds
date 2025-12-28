@@ -34,6 +34,7 @@ typedef struct NDS_Dir NDS_Dir;
 // RomFS directory entry object
 typedef struct NDS_Dirent
 {
+    uint32_t de_fntOffset;
     uint16_t de_id;
     uint8_t de_type;
     char* de_name;
@@ -42,6 +43,10 @@ typedef struct NDS_Dirent
 
 // Open RomFS directory and return dir object
 extern NDS_Dir *NDS_Opendir(const char *path, const NDS_Rom *rom);
+
+// Open RomFS parent directory and return dir object.
+// NULL when root
+extern NDS_Dir* NDS_OpenParentDir(const NDS_Dir *dirptr);
 
 // Close RomFS dir oject
 extern int NDS_Closedir(NDS_Dir *dirptr);

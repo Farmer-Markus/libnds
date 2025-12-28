@@ -4,28 +4,17 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define NDS_CHECK_ROM(rom)                      \
-    if(!rom)                                    \
-    {                                           \
-        NDS_SetError("Given rom is invalid!");  \
-        return -1;                              \
-    }
-
-#define NDS_CHECK_ROM_PTR(rom)                  \
-    if(!rom)                                    \
-    {                                           \
-        NDS_SetError("Given rom is invalid!");  \
-        return NULL;                            \
-    }
-
+#define NDS_RH_GAMETITLE_SIZE 12
+#define NDS_RH_GAMECODE_SIZE 4
+#define NDS_RH_MAKERCODE_SIZE 2
 
 
 #pragma pack(push, 1)
 typedef struct NDS_RomHeader
 {   // https://problemkaputt.de/gbatek.htm#dscartridgeheader
-    char gameTitle[12];
-    char gameCode[4];
-    char makerCode[2];
+    char gameTitle[NDS_RH_GAMETITLE_SIZE];
+    char gameCode[NDS_RH_GAMECODE_SIZE];
+    char makerCode[NDS_RH_MAKERCODE_SIZE];
     uint8_t unitCode;
     uint8_t encryptionSeedSelect;
     uint8_t deviceCapacity;
@@ -93,9 +82,9 @@ NDS_Rom* NDS_OpenRom(char *path);
 
 // Close/Destroy rom object
 // 0 on Success, -1 Error
-int NDS_CloseRom(NDS_Rom *rom);
+int NDS_CloseRom(NDS_Rom *romptr);
 
-const NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom *rom);
+const NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom *romptr);
 
 
 #endif
