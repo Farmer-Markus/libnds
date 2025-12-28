@@ -1,5 +1,5 @@
-#include <NDS_memory.h>
-#include <NDS_logging.h>
+#include "NDS_memory.h"
+#include "NDS_logging.h"
 #include <stddef.h>
 #include <stdlib.h>
 

@@ -1,5 +1,5 @@
-#ifndef NDS_H_INTERNAL
-#define NDS_H_INTERNAL
+#ifndef NDS_h_
+#define NDS_h_
 
 // Initialize NDS library
 int NDS_Init();

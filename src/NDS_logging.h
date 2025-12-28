@@ -1,5 +1,5 @@
-#ifndef NDS_LOGGING_H_INTERNAL
-#define NDS_LOGGING_H_INTERNAL
+#ifndef NDS_logging_h_
+#define NDS_logging_h_
 
 
 typedef struct NDS_ErrorMessage

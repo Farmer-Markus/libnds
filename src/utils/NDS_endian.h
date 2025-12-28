@@ -1,5 +1,5 @@
-#ifndef NDS_ENDIAN_H_INTERNAL
-#define NDS_ENDIAN_H_INTERNAL
+#ifndef NDS_endian_h_
+#define NDS_endian_h_
 /*
 #include <stdint.h>
 

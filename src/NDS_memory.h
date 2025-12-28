@@ -1,5 +1,5 @@
-#ifndef NDS_MEMORY_H_INTERNAL
-#define NDS_MEMORY_H_INTERNAL
+#ifndef NDS_memory_h_
+#define NDS_memory_h_
 
 #include <stddef.h>
 

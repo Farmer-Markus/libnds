@@ -1,6 +1,6 @@
-#include <filesystem/NDS_rom.h>
-#include <NDS_logging.h>
-#include <NDS_memory.h>
+#include "../NDS_logging.h"
+#include "../NDS_memory.h"
+#include "NDS_rom.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -20,13 +20,12 @@ NDS_Rom* NDS_OpenRom(char *path)
     }
 
     NDS_Rom *rom;
-    if((rom = (NDS_Rom*)NDS_Malloc(sizeof(NDS_Rom))) == NULL)
-        return NULL;
+    if((rom = NDS_Malloc(sizeof(NDS_Rom))) == NULL) return NULL;
 
-    rom->romFileStream = romFile;
+    rom->r_fstream = romFile;
     fseek(romFile, 0, SEEK_SET);
 
-    if(fread(&rom->header, sizeof(NDS_RomHeader), 1, romFile) != 1)
+    if(fread(&rom->r_header, sizeof(NDS_RomHeader), 1, romFile) != 1)
     {
         NDS_SetError("Failed to parse rom header. Could not read full rom header");
         return NULL;
@@ -41,7 +40,7 @@ int NDS_CloseRom(NDS_Rom *rom)
 {
     int8_t res = 0;
     // Close file streams, delete pointer etc.
-    if(fclose(rom->romFileStream))
+    if(fclose(rom->r_fstream))
     {
         res = -1;
         NDS_SetError("Failed to close rom file stream");
@@ -55,7 +54,7 @@ int NDS_CloseRom(NDS_Rom *rom)
 const NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom *rom)
 {
     NDS_CHECK_ROM_PTR(rom);
-    return &rom->header;
+    return &rom->r_header;
 }
 
 /*

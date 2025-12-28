@@ -1,5 +1,5 @@
+#include "NDS_endian.h"
 #include <stdint.h>
-#include <utils/NDS_endian.h>
 
 /*
 uint16_t NDS_ByteFlipU16(uint16_t val)

@@ -1,4 +1,4 @@
-#include <NDS_logging.h>
+#include "NDS_logging.h"
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>

@@ -15,5 +15,4 @@ file(GLOB NDS_SOURCES ${PROJECT_SOURCE_DIR}/src/*.c ${PROJECT_SOURCE_DIR}/src/fi
 add_executable(nds ${NDS_SOURCES})
 target_include_directories(nds
     PUBLIC include
-    PRIVATE src
 )
