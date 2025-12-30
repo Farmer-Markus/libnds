@@ -1,6 +1,7 @@
 #ifndef NDS_logging_h_
 #define NDS_logging_h_
 
+#ifdef NDS_DEBUG_BUILD
 #define NDS_CHECK_PTR(ptr)                          \
     if(!ptr)                                        \
     {                                               \
@@ -14,6 +15,10 @@
         NDS_SetError("Given pointer is invalid!");  \
         return -1;                                  \
     }
+#else
+#define NDS_CHECK_PTR(ptr)
+#define NDS_CHECK_PTR_RINT(ptr)
+#endif
 
 
 typedef struct NDS_ErrorMessage
