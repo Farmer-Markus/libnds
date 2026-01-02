@@ -78,6 +78,7 @@ struct NDS_NitroFsItEntry
 
 
 NDS_NitroFs* NDS_NitroFsOpen(const NDS_NitroFsInf inf, NDS_Rom *rom);
+int NDS_NitroFsClose(NDS_NitroFs *fs);
 
 int NDS_NitroFsItCreate(NDS_NitroFsIt *dest, uint16_t dir_id, NDS_NitroFs *fs);
 // -1 on error, 0 on success, 1 on end

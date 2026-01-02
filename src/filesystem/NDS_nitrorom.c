@@ -84,6 +84,14 @@ NDS_NitroFs* NDS_NitroFsOpen(const NDS_NitroFsInf inf, NDS_Rom *rom)
     return fs;
 }
 
+int NDS_NitroFsClose(NDS_NitroFs *fs)
+{
+    free(fs->fnt_dirs);
+    free(fs->fat_files);
+    free(fs);
+    return 0;
+}
+
 int NDS_NitroFsItCreate(NDS_NitroFsIt *dest, uint16_t dir_id, NDS_NitroFs *fs)
 {
     NDS_CHECK_PTR(fs);
@@ -181,7 +189,6 @@ int16_t NDS_NitroFsResolvePath(char *path, uint16_t start_id, NDS_NitroFs *fs)
 
     char *path2;
     uint8_t part_len;
-    NDS_NitroFsIt it;
 
     for(;; path = path2)
     {
@@ -206,6 +213,7 @@ int16_t NDS_NitroFsResolvePath(char *path, uint16_t start_id, NDS_NitroFs *fs)
         }
 
         bool found = false;
+        NDS_NitroFsIt it;
         if(NDS_NitroFsItCreate(&it, curr_dir, fs) != 0) return -1;
         NDS_NitroFsItEntry entry;
         while(NDS_NitroFsItRead(&entry, &it) == 0)

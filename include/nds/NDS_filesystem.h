@@ -51,7 +51,7 @@ typedef struct NDS_NitroFsItEntry
 extern NDS_NitroFs* NDS_NitroFsOpen(const NDS_NitroFsInf inf, NDS_Rom *rom);
 // Close NitroRom filesystem object
 // 0 on success, -1 on failure
-extern int NDS_NitroFsClose(const NDS_NitroFsInf inf, NDS_Rom *rom);
+extern int NDS_NitroFsClose(NDS_NitroFs *fs);
 
 // Open iterator at specific directory
 // 0 on success, -1 on failure
