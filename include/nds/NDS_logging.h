@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-// Get message of last error
+// Get last error message
 extern const char* NDS_GetError(void);
 
 #ifdef __cplusplus

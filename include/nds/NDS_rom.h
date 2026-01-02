@@ -88,15 +88,17 @@ typedef struct NDS_RomHeader
 } NDS_RomHeader;
 #pragma pack(pop)
 
-// Open NDS rom and return rom object
-extern NDS_Rom* NDS_OpenRom(char* path);
+// Open NDS rom
+// object pointer on success, NULL on failure
+extern NDS_Rom* NDS_RomOpen(const char *path);
 
-// Close NDS rom from rom object
-extern int NDS_CloseRom(NDS_Rom *romptr);
+// Close NDS rom object
+// 0 on success, -1 on failure
+extern int NDS_RomClose(NDS_Rom *romptr);
 
-// Get NDS rom header infos
-extern const struct NDS_RomHeader* NDS_GetRomHeader(const NDS_Rom* romptr);
-
+// Get NDS rom header info object
+// object pointer on success, NULL on failure
+extern const struct NDS_RomHeader* NDS_RomGetHeader(const NDS_Rom *rom);
 
 #ifdef __cplusplus
 }

@@ -83,6 +83,7 @@ typedef struct
 } NDS_RomHeader;
 #pragma pack(pop)
 
+// Only used internal
 typedef struct
 {
     FILE* r_fstream;
@@ -99,16 +100,17 @@ typedef struct
 
 // Open rom object from path
 // return NULL on fail
-NDS_Rom* NDS_RomOpen(char *path);
+NDS_Rom* NDS_RomOpen(const char *path);
 
 // Close/Destroy rom object
 // 0 on Success, -1 Error
-int NDS_RomClose(NDS_Rom *romptr);
+int NDS_RomClose(NDS_Rom *rom);
 
 // Read n bytes from rom
-int NDS_RomRead(void *restrict dest, uint32_t offset, size_t n, NDS_RomAccess *acc);
+int NDS_RomRead(void *restrict dest, uint32_t offset, size_t n, const NDS_RomAccess *acc);
 
-const NDS_RomHeader* NDS_RomGetHeader(const NDS_Rom *romptr);
+const NDS_RomAccess* NDS_RomAccessGet(const NDS_Rom *rom);
+const NDS_RomHeader* NDS_RomGetHeader(const NDS_Rom *rom);
 
 
 #endif

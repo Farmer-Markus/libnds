@@ -1,6 +1,7 @@
 #ifndef NDS_logging_h_
 #define NDS_logging_h_
 
+#include <stddef.h>
 #ifdef NDS_DEBUG_BUILD
 #define NDS_CHECK_PTR(ptr)                          \
     if(!ptr)                                        \
@@ -23,12 +24,17 @@
 
 typedef struct NDS_ErrorMessage
 {
+    size_t buff_size;
+    size_t msg_len;
     char* message;
 
 } NDS_ErrorMessage;
 
+// %s, %i supported
+int NDS_SetError(const char *format, ...);
+
 // Set error message
-int NDS_SetError(const char* msg);
+//int NDS_SetError(const char *msg, ...);
 
 // Get latest error message
 const char* NDS_GetError(void);
