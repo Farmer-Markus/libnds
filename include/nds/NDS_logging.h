@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #ifndef NDS_logging_h
 #define NDS_logging_h
 

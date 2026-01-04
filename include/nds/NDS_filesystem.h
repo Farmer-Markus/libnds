@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #ifndef NDS_filesystem_h
 #define NDS_filesystem_h
 

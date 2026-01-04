@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #include "NDS_memory.h"
 #include "NDS_logging.h"
 #include <stddef.h>

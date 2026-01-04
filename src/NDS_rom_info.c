@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #include "NDS_rom_info.h"
 #include "NDS_logging.h"
 #include "NDS_rom.h"

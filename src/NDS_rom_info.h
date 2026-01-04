@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #ifndef NDS_rom_info_h_
 #define NDS_rom_info_h_
 

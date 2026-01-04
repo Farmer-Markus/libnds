@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #ifndef NDS_nitrorom_h_
 #define NDS_nitrorom_h_
 
