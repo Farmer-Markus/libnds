@@ -6,9 +6,14 @@
 #include <stdio.h>
 
 
+typedef struct NDS_RomHeader NDS_RomHeader;
+typedef struct NDS_RomAccess NDS_RomAccess;
+typedef struct NDS_Rom NDS_Rom;
+
+
 // https://problemkaputt.de/gbatek.htm#dscartridgeheader
 #pragma pack(push, 1)
-typedef struct
+struct NDS_RomHeader
 {
     char game_title[0x0C];
     char game_code[0x04];
@@ -80,22 +85,20 @@ typedef struct
     uint8_t reserved6[0x04];
     uint8_t reserved7[0x90];
     uint8_t reserved8[0xE00];
-} NDS_RomHeader;
+};
 #pragma pack(pop)
 
-// Only used internal
-typedef struct
+struct NDS_RomAccess
 {
     FILE* r_fstream;
     // add mutex here
-} NDS_RomAccess;
+};
 
-typedef struct
+struct NDS_Rom
 {
     NDS_RomHeader r_header;
     NDS_RomAccess acc;
-
-} NDS_Rom;
+};
 
 
 // Open rom object from path
@@ -107,10 +110,11 @@ NDS_Rom* NDS_RomOpen(const char *path);
 int NDS_RomClose(NDS_Rom *rom);
 
 // Read n bytes from rom
+// 0 on success, -1 on failure
 int NDS_RomRead(void *restrict dest, uint32_t offset, size_t n, const NDS_RomAccess *acc);
 
 const NDS_RomAccess* NDS_RomAccessGet(const NDS_Rom *rom);
-const NDS_RomHeader* NDS_RomGetHeader(const NDS_Rom *rom);
+const NDS_RomHeader* NDS_RomHeaderGet(const NDS_Rom *rom);
 
 
 #endif

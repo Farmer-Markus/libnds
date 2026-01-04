@@ -1,5 +1,5 @@
-#include "../NDS_logging.h"
-#include "../NDS_memory.h"
+#include "NDS_logging.h"
+#include "NDS_memory.h"
 #include "NDS_rom.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -67,7 +67,7 @@ int NDS_RomRead(void *restrict dest, uint32_t offset, size_t n, const NDS_RomAcc
     return 0;
 }
 
-const NDS_RomHeader* NDS_RomGetHeader(const NDS_Rom *rom)
+const NDS_RomHeader* NDS_RomHeaderGet(const NDS_Rom *rom)
 {
     NDS_CHECK_PTR(rom);
     return &rom->r_header;

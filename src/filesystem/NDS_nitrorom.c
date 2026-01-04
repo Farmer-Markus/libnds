@@ -1,12 +1,12 @@
 #include "../NDS_logging.h"
 #include "../NDS_memory.h"
-#include "NDS_rom.h"
+#include "../NDS_rom.h"
+#include "NDS_nitrorom.h"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include "NDS_nitrorom.h"
 
 #define CHECK_FID(id, max)                                                    \
     if(id > max)                                                              \

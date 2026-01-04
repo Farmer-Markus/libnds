@@ -1,7 +1,7 @@
 #ifndef NDS_nitrorom_h_
 #define NDS_nitrorom_h_
 
-#include "NDS_rom.h"
+#include "../NDS_rom.h"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
